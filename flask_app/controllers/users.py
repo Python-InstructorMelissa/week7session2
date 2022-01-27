@@ -68,15 +68,3 @@ def logout():
     flash("You have been logged out")
     return redirect('/')
 
-@app.route('/dashboard/')
-def dashboard():
-    if 'user_id' not in session:
-        flash('Please log in')
-        return redirect('/')
-    else:
-        data = {
-            'id': session['user_id']
-        }
-        user = User.getOne(data)
-        print('user.level: ', user.level)
-        return render_template('dashboard.html', user=user)

@@ -26,6 +26,16 @@ class SavedList:
         return cls(results[0])
 
     @classmethod
+    def getUserLists(cls, data):
+        query = "SELECT * FROM savedList WHERE user_id = %(user_id)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        print('userlists model results: ', results)
+        lists = []
+        for list in results:
+            lists.append(cls(list))
+        return lists
+
+    @classmethod
     def save(cls, data):
         q = 'INSERT INTO savedList (name, user_id) VALUES (%(name)s, %(user_id)s);'
         return connectToMySQL(cls.db).query_db(q, data)

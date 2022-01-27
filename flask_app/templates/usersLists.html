@@ -25,47 +25,21 @@
         {% endwith %}
     </div>
     <main>
-        <h1>Welcome to your dashboard {{user.firstName}}</h1>
         <div class="row">
-            <form action="/note/create/" method='post'>
+            <form action="/list/create/" method='post'>
                 <section>
-                    <label for="note">Note: </label>
-                    <input type="text" name="note">
-                </section>
-                <section>
-                    <label for="private">Chose if the note is private or not</label>
-                    <select name="private">
-                        <option value="0">No</option>
-                        <option value="1">Yes</option>
-                    </select>
+                    <label for="name">List Name: </label>
+                    <input type="text" name="name">
                 </section>
                 <section>
                     <input type="hidden" name="user_id" value={{user.id}}>
                 </section>
-                <button>Add Note</button>
+                <button>Save List</button>
             </form>
             <div class="column">
-                <table>
-                    <tr>
-                        <th>Note</th>
-                        <th>Privacy</th>
-                        <th>Save Note</th>
-                        <th>Actions</th>
-                    </tr>
-                    {% for note in notes %}
-                        <tr>
-                            <td>{{note.note}}</td>
-                            
-                            {% if note.private == 0 %}
-                                <td>Not private</td>
-                            {% else %}
-                                <td>Private Note</td>
-                            {% endif %}
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    {% endfor %}
-                </table>
+                {% for list in lists %}
+                    <h3>{{list.name}}</h3>
+                {% endfor %}
             </div>
         </div>
     </main>
