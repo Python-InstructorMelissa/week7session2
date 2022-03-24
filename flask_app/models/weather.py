@@ -2,29 +2,30 @@ from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 
 
-class Favorite:
+class Weather:
     db = 'favoriteImages'
     # db = 'craftsnh_favoriteImages'
     def __init__(self, data):
         self.id = data['id']
-        self.name = data['name']
-        self.img = data['img']
+        self.city = data['city']
+        self.conditions = data['conditions']
+        self.temp = data['temp']
         self.createdAt = data['createdAt']
         self.updatedAt = data['updatedAt']
         self.user_id = data['user_id']
 
     @classmethod
     def getAll(cls):
-        query = 'SELECT * FROM favorite;'
+        query = 'SELECT * FROM forecast;'
         results = connectToMySQL(cls.db).query_db(query)
-        favs = []
+        temps = []
         for row in results:
-            favs.append(cls(row))
-        return favs
+            temps.append(cls(row))
+        return temps
 
     @classmethod
     def getOne(cls, data):
-        query = "SELECT * FROM favorite WHERE id = %(id)s;"
+        query = "SELECT * FROM forecast WHERE id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query, data)
         if len(results) < 1:
             return False
@@ -32,15 +33,15 @@ class Favorite:
 
     @classmethod
     def save(cls, data):
-        query = 'INSERT INTO favorite (name, img, user_id) VALUES (%(name)s, %(img)s, %(user_id)s);'
+        query = 'INSERT INTO forecast (city, conditions, temp, user_id) VALUES (%(city)s, %(conditions)s, %(temp)s, %(user_id)s);'
         return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
     def update(cls, data):
-        query = 'UPDATE favorite SET name=%(name)s, img=%(img)s WHERE id = %(id)s;'
+        query = 'UPDATE forecast SET city=%(city)s, conditions=%(conditions)s, temp=%(temp)s WHERE id = %(id)s;'
         return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
     def delete(cls, data):
-        query = 'DELETE FROM favorite WHERE id = %(id)s;'
+        query = 'DELETE FROM forecast WHERE id = %(id)s;'
         return connectToMySQL(cls.db).query_db(query, data)

@@ -4,9 +4,10 @@
     {% block menu %}
     {% if session['user_id'] %}
         <a href="/dashboard/">Dashboard</a>
-        <a href="/images/add/">Add Images</a>
         <a href="/images/nasa/">Nasa</a>
         <a href="/images/looneyToones">Looney Toones</a>
+        <a href="/weather/">Weather</a>
+        <a href="/users/">Other User Logs</a>
         <a href="/logout/">Logout</a>
     {% endif %}
     {% endblock menu %}

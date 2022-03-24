@@ -48,19 +48,45 @@ body {
         width: 85%;
         margin: 1em;
 
+        button {
+            box-shadow: 5px 5px #1595c7;
+            margin: 1.5em;
+            font-size: 1.2em;
+            padding: 1em;
+            background-color: #0f2929;
+            color: #1595c7;
+
+            a {
+                text-decoration: none;
+                color: #1595c7;
+                padding: 1em;
+                border-radius: 50%;
+            }
+        }
+
         .row {
             .flexrow();
             width: 95%;
             align-items: flex-start;
 
-            .column {
-                .flexcolumn();
-                padding: .5em;
-                margin: 1em;
-                border: 3px groove #1595c7;
+            #images, #temps {
+                display: none;
 
-                img {
-                    max-width: 250px;
+                .row {
+                    .flexrow();
+                    flex-wrap: wrap;
+                    width: 100%;
+
+                    .column {
+                        .flexcolumn();
+                        padding: .5em;
+                        margin: 1em;
+                        border: 3px groove #1595c7;
+        
+                        img {
+                            max-width: 250px;
+                        }
+                    }
                 }
             }
         }
@@ -95,6 +121,16 @@ body {
                 img {
                     max-width: 250px;
                 }
+            }
+        }
+        .weather {
+            .flexcolumn();
+
+            #forecast {
+                .flexcolumn();
+                padding: .5em;
+                margin: 1em;
+                border: 3px groove #1595c7;
             }
         }
     }

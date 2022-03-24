@@ -1,5 +1,16 @@
 # week7session2
 
+# DEPLOYED VERSION
+https://dojofun.navyladyveteran.com/
+
+
+YOU WILL NEED TO INSTALL THE FOLLOWING PACKAGES TO RUN THIS APP AS IS
+flask
+flask-bcrypt
+pymysql
+requests
+flask-cors
+
 https://api.github.com/users/dojo24
 https://api.github.com/users/dojo24/followers
 
@@ -16,4 +27,3 @@ https://app.peardeck.com/student/ttcyuundb
 
 https://github.com/public-apis/public-apis
 
-Recommended to pipenv install Flask-Cors

@@ -58,6 +58,20 @@ body main {
   width: 85%;
   margin: 1em;
 }
+body main button {
+  box-shadow: 5px 5px #1595c7;
+  margin: 1.5em;
+  font-size: 1.2em;
+  padding: 1em;
+  background-color: #0f2929;
+  color: #1595c7;
+}
+body main button a {
+  text-decoration: none;
+  color: #1595c7;
+  padding: 1em;
+  border-radius: 50%;
+}
 body main .row {
   display: flex;
   flex-direction: row;
@@ -66,7 +80,21 @@ body main .row {
   width: 95%;
   align-items: flex-start;
 }
-body main .row .column {
+body main .row #images,
+body main .row #temps {
+  display: none;
+}
+body main .row #images .row,
+body main .row #temps .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+body main .row #images .row .column,
+body main .row #temps .row .column {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,7 +103,8 @@ body main .row .column {
   margin: 1em;
   border: 3px groove #1595c7;
 }
-body main .row .column img {
+body main .row #images .row .column img,
+body main .row #temps .row .column img {
   max-width: 250px;
 }
 body main .nasa {
@@ -112,4 +141,19 @@ body main .api div {
 }
 body main .api div img {
   max-width: 250px;
+}
+body main .weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main .weather #forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  margin: 1em;
+  border: 3px groove #1595c7;
 }

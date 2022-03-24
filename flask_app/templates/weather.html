@@ -9,13 +9,14 @@
 </head>
 <body>
     <header>
+        <h1>Favorite Images App</h1>
         <nav>
             {% block menu %} {% include 'menu.html' %} {% endblock menu %}
         </nav>
     </header>
-    <div class="message">
+    <div class="messages">
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
+            {%if messages %}
                 {% for m in messages %}
                     <h5>{{m}}</h5>
                 {% endfor %}
@@ -23,9 +24,23 @@
         {% endwith %}
     </div>
     <main>
-            <h1>Lets look at some Looney Tunes</h1>
-            <button onclick='getToon()'>Get Toon</button>
-            <div id="tune" class='api'></div>
+        <h1>Welcome {{user.fullName()}}</h1>
+        <div class='weather'>
+            <h3>Check your weather</h3>
+            <form id="form">
+                <div>
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city">
+                </div>
+                <button>Submit</button>
+            </form>
+        
+            <div id="forecast">
+                <h3>Forecast</h3>
+            </div>
+            <div id="save"></div>
+        </div>
+    </div>
     </main>
     <footer>
 

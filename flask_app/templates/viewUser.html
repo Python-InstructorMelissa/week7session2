@@ -10,6 +10,7 @@
 <body>
     <header>
         <h1>Favorite Images App</h1>
+        <h1>Welcome {{you.fullName()}}</h1>
         <nav>
             {% block menu %} {% include 'menu.html' %} {% endblock menu %}
         </nav>
@@ -24,12 +25,8 @@
         {% endwith %}
     </div>
     <main>
-        <h1>Welcome {{user.fullName()}}</h1>
-        <div class="row">
-            <button><a href="/images/add/">Add Images</a></button>
-            <button><a href="/profile/">View/Edit your information</a></button>
-        </div>
-        <button id="image">Show your Images</button>
+        <h1>{{user.username}}</h1>
+        <button id="image">Show {{user.username}}'s Images</button>
         <div class="row">
             <div id="images">
                 <div class="row">
@@ -44,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <button id="forecast">Show your logged Weather Conditions</button>
+        <button id="forecast">Show {{user.username}}'s' logged Weather Conditions</button>
         <div class="row">
             <div id="temps">
                 <table>
