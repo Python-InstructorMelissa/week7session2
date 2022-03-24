@@ -36,7 +36,7 @@ $(document).ready(function(){
     $.get(toons, function(res) {
         console.log(res)
     })
-    $('form').submit(function () {
+    $('.form').submit(function () {
         var city = $('#city').val();
         var cityString = `${city}`
 

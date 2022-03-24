@@ -33,7 +33,13 @@
             {% for user in users %}
                 <tr>
                     <td>{{user.username}}</td>
-                    <td><button><a href="/users/{{user.id}}/view/">View</a></button></td>
+                    <td>
+                        {% if user.id == you.id %}
+                            <button><a href="/dashboard/">Dashboard</a></button>
+                        {% else %}
+                            <button><a href="/users/{{user.id}}/view/">View</a></button>
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
         </table>

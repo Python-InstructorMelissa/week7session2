@@ -35,6 +35,11 @@
                             <div class="column">
                                 <img src="{{image.img}}" alt="{{image.name}}">
                                 <h4>{{image.name}}</h4>
+                                <form action="/images/create/" method="post">
+                                    <input type="hidden" name="name" value="{{image.name}}">
+                                    <input type="hidden" name="img" value="{{image.img}}">
+                                    <button>Save to your favorites</button>
+                                </form>
                             </div>
                         {% endif %}
                     {% endfor %}
