@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% block menu %}
+    {% if user %}
+        <a href="/">Home</a>
+        <a href="/user/{{user.id}}/addGit/">Add Git Username</a>
+        <a href="/joke/">What a Joke</a>
+        <a href="/logout/">Logout</a>
+    {% endif %}
+    {% endblock menu %}
+</body>
+</html>
